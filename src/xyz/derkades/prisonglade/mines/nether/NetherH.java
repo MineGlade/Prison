@@ -1,5 +1,17 @@
 package xyz.derkades.prisonglade.mines.nether;
 
-public class NetherH {
+import xyz.derkades.prisonglade.mines.PrisonMine;
+
+public class NetherH extends NetherLevel {
+
+	@Override
+	public char getChar() {
+		return 'H';
+	}
+
+	@Override
+	public PrisonMine getMine() {
+		return null;
+	}
 
 }
