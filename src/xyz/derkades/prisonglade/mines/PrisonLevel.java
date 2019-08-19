@@ -76,5 +76,12 @@ public abstract class PrisonLevel implements Themeable {
 		}
 	}
 
+	public void fill() {
+		if (this.getMine() != null) {
+			this.getMine().fill();
+		} else {
+			System.out.println("level " + this.getChar() + " does not have a mine");
+		}
+	}
 
 }

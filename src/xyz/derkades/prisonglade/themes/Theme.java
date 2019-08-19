@@ -6,6 +6,7 @@ public enum Theme {
 
 	FARM("Farm", "Farm description", Material.STONE_HOE),
 	NETHER("Nether", "Nether description", Material.NETHERRACK),
+	END("End", "End description", Material.ENDER_STONE),
 
 	;
 

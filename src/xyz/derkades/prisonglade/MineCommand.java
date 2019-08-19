@@ -22,6 +22,11 @@ public class MineCommand extends Command {
 				sender.sendMessage(level.getTheme().getName() + " : " + level.getChar());
 			}
 			return true;
+		} else if (args.length == 1 && args[0].equalsIgnoreCase("regen")) {
+			for (final PrisonLevel level : PrisonLevels.LEVELS) {
+				level.fill();
+			}
+			return true;
 		} else if (args.length == 2) {
 			final Player player = (Player) sender;
 
