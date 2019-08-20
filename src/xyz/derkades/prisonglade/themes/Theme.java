@@ -10,7 +10,7 @@ public enum Theme {
 	WATER("Water", "Water description", Material.WATER_BUCKET),
 	COLD("Cold", "Cold description", Material.ICE),
 	DESERT("Desert", "Desert description", Material.SAND),
-
+	STONE("Stone", "Stone description", Material.STONE),
 	;
 
 	private String name;
