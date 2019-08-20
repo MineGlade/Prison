@@ -33,7 +33,7 @@ public class FarmF extends FarmLevel {
 				.addBlock(Material.LOG, 2, 0.025f)
 				.addBlock(Material.LOG, 1, 0.02f)
 				.addBlock(Material.LOG, 3, 0.015f)
-				.addBlock(Material.LOG, 4, 0.01f)
+				.addBlock(Material.LOG_2, 0, 0.01f)
 				.create();
 	}
 
