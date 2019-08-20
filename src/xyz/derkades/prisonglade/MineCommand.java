@@ -2,6 +2,8 @@ package xyz.derkades.prisonglade;
 
 import java.util.Arrays;
 
+import org.bukkit.Bukkit;
+import org.bukkit.Material;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
@@ -20,6 +22,14 @@ public class MineCommand extends Command {
 		if (args.length == 1 && args[0].equalsIgnoreCase("list")) {
 			for (final PrisonLevel level : PrisonLevels.LEVELS) {
 				sender.sendMessage(level.getTheme().getName() + " : " + level.getChar());
+			}
+			return true;
+		} else if (args.length == 1 && args[0].equalsIgnoreCase("reset") && sender.hasPermission("prison.reset")) {
+			Bukkit.broadcastMessage("Resetting all mines, expect lag");
+			for (final PrisonLevel level : PrisonLevels.LEVELS) {
+				if (level.getMine() != null) {
+					level.getMine().getLocations().forEach((l) -> l.getBlock().setType(Material.AIR));
+				}
 			}
 			return true;
 		} else if (args.length == 2) {
