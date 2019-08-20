@@ -19,11 +19,11 @@ import moda.plugin.moda.utils.storage.NoStorageHandler;
 import xyz.derkades.prisonglade.mines.PrisonLevel;
 import xyz.derkades.prisonglade.mines.PrisonLevels;
 
-public class PrisonGlade extends Module<NoStorageHandler> {
+public class Prison extends Module<NoStorageHandler> {
 
-	public static PrisonGlade instance;
+	public static Prison instance;
 
-	public PrisonGlade() {
+	public Prison() {
 		instance = this;
 	}
 
@@ -44,7 +44,7 @@ public class PrisonGlade extends Module<NoStorageHandler> {
 
 	@Override
 	public String getName() {
-		return "PrisonGlade";
+		return "Prison";
 	}
 
 	@Override
@@ -55,6 +55,8 @@ public class PrisonGlade extends Module<NoStorageHandler> {
 		for (final PrisonLevel level : PrisonLevels.LEVELS) {
 			level.loadWorld();
 		}
+
+		new FillTask();
 	}
 
 	@EventHandler

@@ -21,7 +21,7 @@ public class PrisonMine {
 		this.fillBlock = fillBlock;
 	}
 
-	public void fill() {
+	public List<Location> getLocations(){
 		final int minX = Math.min(this.a.getBlockX(), this.b.getBlockX());
 		final int maxX = Math.max(this.a.getBlockX(), this.b.getBlockX());
 		final int minY = Math.min(this.a.getBlockY(), this.b.getBlockY());
@@ -39,9 +39,27 @@ public class PrisonMine {
 			}
 		}
 
+		return locations;
+	}
+
+	public boolean shouldFill(){
+		int empty = 0;
+		int block = 0;
+		for (final Location location : this.getLocations()) {
+			if (location.getBlock().getType() == Material.AIR) {
+				empty++;
+			} else {
+				block++;
+			}
+		}
+
+		return block < empty;
+	}
+
+	public void fill() {
 		final List<Location> fill = new ArrayList<>();
 
-		locloop: for (final Location location : locations) {
+		locloop: for (final Location location : this.getLocations()) {
 			Collections.shuffle(this.blocks);
 			for (final ChanceBlock block : this.blocks) {
 				if (block.place(location)) {
