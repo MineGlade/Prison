@@ -14,7 +14,7 @@ public class FillTask implements Runnable {
 	public static List<PrisonLevel> levelsToFill = new ArrayList<>();
 
 	public FillTask() {
-		Prison.instance.getScheduler().interval(5*20, 5*20, this);
+		Prison.instance.getScheduler().interval(10*20, 10*20, this);
 	}
 
 	@Override
