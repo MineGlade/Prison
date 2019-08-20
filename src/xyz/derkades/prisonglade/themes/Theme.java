@@ -9,6 +9,7 @@ public enum Theme {
 	END("End", "End description", Material.ENDER_STONE),
 	WATER("Water", "Water description", Material.WATER_BUCKET),
 	COLD("Cold", "Cold description", Material.ICE),
+	DESERT("Desert", "Desert description", Material.SAND),
 
 	;
 
