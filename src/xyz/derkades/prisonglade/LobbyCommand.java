@@ -16,7 +16,7 @@ public class LobbyCommand extends Command {
 	@Override
 	public boolean execute(final CommandSender sender, final String label, final String[] args) {
 		final Player player = (Player) sender;
-		player.teleport(Bukkit.getWorld("world").getSpawnLocation());
+		player.teleport(Bukkit.getWorld("lobby").getSpawnLocation());
 		return false;
 	}
 
