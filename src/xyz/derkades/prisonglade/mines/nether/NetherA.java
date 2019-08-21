@@ -14,7 +14,7 @@ public class NetherA extends NetherLevel {
 
 	@Override
 	public PrisonMine getMine() {
-		return new PrisonMineFactory(this.getWorld(), 0, 0, 0, 0, 0, 0, Material.NETHERRACK)
+		return new PrisonMineFactory(this.getWorld(), 0, 58, 5, 12, 41, 17, Material.NETHERRACK)
 				.addBlock(Material.SOUL_SAND, 0.15f)
 				.addBlock(Material.GRAVEL, 0.05f)
 				.addBlock(Material.GLOWSTONE, 0.15f)
