@@ -1,4 +1,4 @@
-package xyz.derkades.prisonglade;
+package xyz.derkades.prisonglade.mechanics;
 
 import java.util.ArrayList;
 import java.util.Arrays;
@@ -6,6 +6,7 @@ import java.util.List;
 
 import org.bukkit.Bukkit;
 
+import xyz.derkades.prisonglade.Prison;
 import xyz.derkades.prisonglade.mines.PrisonLevel;
 import xyz.derkades.prisonglade.mines.PrisonLevels;
 
