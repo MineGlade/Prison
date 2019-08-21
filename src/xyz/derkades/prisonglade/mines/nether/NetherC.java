@@ -1,6 +1,9 @@
 package xyz.derkades.prisonglade.mines.nether;
 
+import org.bukkit.Material;
+
 import xyz.derkades.prisonglade.mines.PrisonMine;
+import xyz.derkades.prisonglade.mines.PrisonMineFactory;
 
 public class NetherC extends NetherLevel {
 
@@ -11,7 +14,16 @@ public class NetherC extends NetherLevel {
 
 	@Override
 	public PrisonMine getMine() {
-		return null;
+		return new PrisonMineFactory(this.getWorld(), 0, 0, 0, 0, 0, 0, Material.NETHERRACK)
+				.addBlock(Material.SOUL_SAND, 0.12f)
+				.addBlock(Material.GRAVEL, 0.05f)
+				.addBlock(Material.GLOWSTONE, 0.12f)
+				.addBlock(Material.OBSIDIAN, 0.07f)
+				.addBlock(Material.LAVA, 0.05f)
+				.addBlock(Material.NETHER_BRICK, 0.08f)
+				.addBlock(Material.NETHER_FENCE, 0.06f)
+				.addBlock(Material.NETHER_WART_BLOCK, 0.015f)
+				.create();
 	}
 
 }
