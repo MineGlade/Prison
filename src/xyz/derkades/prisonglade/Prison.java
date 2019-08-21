@@ -5,6 +5,7 @@ import org.bukkit.block.BlockFace;
 import org.bukkit.entity.EntityType;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.EventPriority;
+import org.bukkit.event.Listener;
 import org.bukkit.event.entity.EntityDamageEvent;
 import org.bukkit.event.entity.EntityDamageEvent.DamageCause;
 import org.bukkit.event.player.PlayerMoveEvent;
@@ -16,10 +17,11 @@ import moda.plugin.moda.modules.Module;
 import moda.plugin.moda.utils.storage.DatabaseStorageHandler;
 import moda.plugin.moda.utils.storage.FileStorageHandler;
 import moda.plugin.moda.utils.storage.NoStorageHandler;
+import xyz.derkades.prisonglade.mechanics.FillTask;
 import xyz.derkades.prisonglade.mines.PrisonLevel;
 import xyz.derkades.prisonglade.mines.PrisonLevels;
 
-public class Prison extends Module<NoStorageHandler> {
+public class Prison extends Module<NoStorageHandler> implements Listener {
 
 	public static Prison instance;
 
@@ -57,6 +59,8 @@ public class Prison extends Module<NoStorageHandler> {
 		}
 
 		new FillTask();
+
+		this.registerListener(this);
 	}
 
 	@EventHandler
