@@ -19,7 +19,6 @@ public class NetherA extends NetherLevel {
 				.addBlock(Material.GRAVEL, 0.05f)
 				.addBlock(Material.GLOWSTONE, 0.15f)
 				.addBlock(Material.OBSIDIAN, 0.1f)
-				.addBlock(Material.LAVA, 0.07f)
 				.create();
 	}
 

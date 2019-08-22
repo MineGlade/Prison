@@ -19,7 +19,6 @@ public class NetherD extends NetherLevel {
 				.addBlock(Material.GRAVEL, 0.05f)
 				.addBlock(Material.GLOWSTONE, 0.12f)
 				.addBlock(Material.OBSIDIAN, 0.065f)
-				.addBlock(Material.LAVA, 0.045f)
 				.addBlock(Material.NETHER_BRICK, 0.09f)
 				.addBlock(Material.NETHER_FENCE, 0.06f)
 				.addBlock(Material.NETHER_WART_BLOCK, 0.02f)

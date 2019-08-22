@@ -19,7 +19,6 @@ public class NetherF extends NetherLevel {
 				.addBlock(Material.GRAVEL, 0.05f)
 				.addBlock(Material.GLOWSTONE, 0.1f)
 				.addBlock(Material.OBSIDIAN, 0.06f)
-				.addBlock(Material.LAVA, 0.04f)
 				.addBlock(Material.NETHER_BRICK, 0.095f)
 				.addBlock(Material.NETHER_FENCE, 0.065f)
 				.addBlock(Material.NETHER_WART_BLOCK, 0.03f)

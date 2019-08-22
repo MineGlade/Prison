@@ -19,7 +19,6 @@ public class NetherC extends NetherLevel {
 				.addBlock(Material.GRAVEL, 0.05f)
 				.addBlock(Material.GLOWSTONE, 0.12f)
 				.addBlock(Material.OBSIDIAN, 0.07f)
-				.addBlock(Material.LAVA, 0.05f)
 				.addBlock(Material.NETHER_BRICK, 0.08f)
 				.addBlock(Material.NETHER_FENCE, 0.06f)
 				.addBlock(Material.NETHER_WART_BLOCK, 0.015f)
