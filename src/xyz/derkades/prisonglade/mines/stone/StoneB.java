@@ -14,7 +14,7 @@ public class StoneB extends StoneLevel {
 
 	@Override
 	public PrisonMine getMine() {
-		return new PrisonMineFactory(this.getWorld(), 0, 0, 0, 0, 0, 0, Material.STONE)
+		return new PrisonMineFactory(this.getWorld(), -1, 42, 13, 7, 60, 5, Material.STONE)
 				.addBlock(Material.COBBLESTONE, 0.2f)
 				.addBlock(Material.STONE, 5, 0.15f)
 				.addBlock(Material.STONE, 1, 0.07f)
