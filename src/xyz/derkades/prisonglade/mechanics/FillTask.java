@@ -21,14 +21,13 @@ public class FillTask implements Runnable {
 	@Override
 	public void run() {
 		if (levelsToFill.isEmpty()) {
-			Bukkit.broadcastMessage("Levels to fill empty");
 			levelsToFill.addAll(Arrays.asList(PrisonLevels.LEVELS));
 		}
 
 		final PrisonLevel level = levelsToFill.remove(0);
 
 		if (level.getMine() == null) {
-			Bukkit.broadcastMessage("Skipped filling " + level + " (no mine specified)");
+			Prison.instance.getLogger().info("Skipped filling %s (no mine specified)", level);
 			return;
 		}
 
