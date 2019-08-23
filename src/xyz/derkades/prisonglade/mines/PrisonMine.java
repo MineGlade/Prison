@@ -21,6 +21,14 @@ public class PrisonMine {
 		this.fillBlock = fillBlock;
 	}
 
+	public Location getCornerA() {
+		return this.a;
+	}
+
+	public Location getCornerB() {
+		return this.b;
+	}
+
 	public List<Location> getLocations(){
 		final int minX = Math.min(this.a.getBlockX(), this.b.getBlockX());
 		final int maxX = Math.max(this.a.getBlockX(), this.b.getBlockX());

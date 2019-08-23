@@ -76,4 +76,9 @@ public abstract class PrisonLevel implements Themeable {
 		}
 	}
 
+	@Override
+	public String toString() {
+		return this.getTheme() + "_" + this.getChar();
+	}
+
 }

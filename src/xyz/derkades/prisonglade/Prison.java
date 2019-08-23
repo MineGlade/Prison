@@ -18,6 +18,7 @@ import moda.plugin.moda.utils.storage.DatabaseStorageHandler;
 import moda.plugin.moda.utils.storage.FileStorageHandler;
 import moda.plugin.moda.utils.storage.NoStorageHandler;
 import xyz.derkades.prisonglade.mechanics.FillTask;
+import xyz.derkades.prisonglade.mechanics.GriefProtection;
 import xyz.derkades.prisonglade.mines.PrisonLevel;
 import xyz.derkades.prisonglade.mines.PrisonLevels;
 
@@ -59,6 +60,7 @@ public class Prison extends Module<NoStorageHandler> implements Listener {
 		}
 
 		new FillTask();
+		new GriefProtection();
 
 		this.registerListener(this);
 	}
