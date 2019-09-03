@@ -2,6 +2,7 @@ package xyz.derkades.prisonglade.mines;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Difficulty;
+import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.World.Environment;
 import org.bukkit.WorldCreator;
@@ -32,6 +33,10 @@ public abstract class PrisonLevel implements Themeable {
 			this.loadWorld();
 		}
 		return this.world;
+	}
+	
+	public Location getSpawnLocation() {
+		return this.getWorld().getSpawnLocation().add(0.5, 0, 0.5);
 	}
 
 	public void loadWorld() {

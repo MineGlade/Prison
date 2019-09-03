@@ -4,7 +4,8 @@ import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
 
-import org.bukkit.Bukkit;
+import org.bukkit.scheduler.BukkitRunnable;
+import org.bukkit.scheduler.BukkitTask;
 
 import xyz.derkades.prisonglade.Prison;
 import xyz.derkades.prisonglade.mines.PrisonLevel;
@@ -27,19 +28,41 @@ public class FillTask implements Runnable {
 		final PrisonLevel level = levelsToFill.remove(0);
 
 		if (level.getMine() == null) {
-			Prison.instance.getLogger().info("Skipped filling %s (no mine specified)", level);
+			Prison.instance.getLogger().warning("No mine specified for %s", level);
 			return;
 		}
 
 		final boolean shouldFill = level.getMine().shouldFill();
 
 		if (!shouldFill) {
-			//Bukkit.broadcastMessage("Skipped filling " + level + " (not enough air)");
 			return;
 		}
+		
+		Prison.instance.getScheduler().interval(0, 20, new BukkitRunnable() {
+			
+			int secondsLeft = 30;
+			
+			@Override
+			public void run() {
+				Prison.instance.getLogger().debug("Refilling level %s in %s seconds", level, secondsLeft);
+				
+				if (secondsLeft == 30 || secondsLeft == 10 || secondsLeft == 5) {
+					level.getWorld().getPlayers().forEach((p) -> p.sendMessage("Your mine will be refilled in %s seconds."));
+				}
+				
+				if (secondsLeft == 0) {
+					level.getWorld().getPlayers().forEach((p) -> {
+						p.teleport(level.getSpawnLocation());
+					});
+					level.getMine().fill();
+					this.cancel();
+					return;
+				}
 
-		level.getMine().fill();
-		Bukkit.broadcastMessage("Filled " + level);
+				secondsLeft--;
+			}
+			
+		});
 	}
 
 }

@@ -6,9 +6,11 @@ import java.util.stream.Collectors;
 
 import org.bukkit.GameMode;
 import org.bukkit.Location;
+import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
+import org.bukkit.event.block.Action;
 import org.bukkit.event.block.BlockBreakEvent;
 
 import net.md_5.bungee.api.ChatColor;
@@ -50,9 +52,8 @@ public class GriefProtection implements Listener {
 			event.setCancelled(false);
 		} else {
 			event.setCancelled(true);
-			player.sendMessage(ChatColor.GRAY + "You can only harvest crops outside of mines, not break other blocks.");
+			player.sendMessage(ChatColor.GRAY + "You cannot break blocks outside of mines (crops only).");
 		}
-
 	}
 
 	private static boolean isIn2dBounds(final Location location, final Location cornerOne, final Location cornerTwo) {

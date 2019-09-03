@@ -1,12 +1,12 @@
 package xyz.derkades.prisonglade.mines;
 
+import java.util.Random;
 import java.util.function.Consumer;
 
 import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
-
-import com.mineglade.moda.lib.derkutils.Random;
+import org.bukkit.block.BlockState;
 
 public class ChanceBlock {
 
@@ -54,6 +54,7 @@ public class ChanceBlock {
 		}
 
 		final Block block = location.getBlock();
+		final BlockState state = block.getState();
 		block.setType(this.material);
 		block.setData((byte) this.data);
 		if (this.postPlace != null) this.postPlace.accept(block);
