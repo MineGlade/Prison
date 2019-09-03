@@ -16,13 +16,15 @@ import moda.plugin.moda.modules.IMessage;
 import moda.plugin.moda.modules.Module;
 import moda.plugin.moda.utils.storage.DatabaseStorageHandler;
 import moda.plugin.moda.utils.storage.FileStorageHandler;
-import moda.plugin.moda.utils.storage.NoStorageHandler;
 import xyz.derkades.prisonglade.mechanics.FillTask;
 import xyz.derkades.prisonglade.mechanics.GriefProtection;
 import xyz.derkades.prisonglade.mines.PrisonLevel;
 import xyz.derkades.prisonglade.mines.PrisonLevels;
+import xyz.derkades.prisonglade.storage.PrisonFileStorageHandler;
+import xyz.derkades.prisonglade.storage.PrisonStorageHandler;
+import xyz.derkades.prisonglade.xp.ExperienceGiveListener;
 
-public class Prison extends Module<NoStorageHandler> implements Listener {
+public class Prison extends Module<PrisonStorageHandler> implements Listener {
 
 	public static Prison instance;
 
@@ -37,7 +39,7 @@ public class Prison extends Module<NoStorageHandler> implements Listener {
 
 	@Override
 	public FileStorageHandler getFileStorageHandler() {
-		return null;
+		return new PrisonFileStorageHandler(this);
 	}
 
 	@Override
@@ -63,6 +65,7 @@ public class Prison extends Module<NoStorageHandler> implements Listener {
 		new GriefProtection();
 
 		this.registerListener(this);
+		this.registerListener(new ExperienceGiveListener());
 	}
 
 	@EventHandler
