@@ -29,7 +29,7 @@ public class Crops implements Listener {
 			return;
 		}
 
-		event.setUseInteractedBlock(PlayerInteractEvent.Result.DENY);
+		//event.setUseInteractedBlock(PlayerInteractEvent.Result.DENY);
 		event.setCancelled(true);
 
 		// Dehydrate soil and hydrate after a while
