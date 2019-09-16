@@ -1,6 +1,5 @@
 package xyz.derkades.prisonglade.mechanics;
 
-import org.bukkit.CropState;
 import org.bukkit.Material;
 import org.bukkit.block.Block;
 import org.bukkit.event.EventHandler;
@@ -18,29 +17,39 @@ public class Crops implements Listener {
 		Prison.instance.registerListener(this);
 	}
 
-	@EventHandler(priority = EventPriority.HIGH)
-	public void onTrample(final PlayerInteractEvent event) {
-		if (event.getAction() == Action.PHYSICAL &&
-				event.getClickedBlock().getType() == Material.DIRT, 0) { // TODO farmland data value
-			event.setCancelled(true);
+	@SuppressWarnings("deprecation")
+	@EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
+	public void onTrample(final PlayerInteractEvent event){
+	    if (event.getAction() != Action.PHYSICAL){
+	    	return;
+	    }
+
+		final Block soil = event.getClickedBlock();
+		if (soil == null || soil.getType() != Material.SOIL) {
+			return;
 		}
+
+		event.setUseInteractedBlock(PlayerInteractEvent.Result.DENY);
+		event.setCancelled(true);
+
+		// Dehydrate soil and hydrate after a while
+		soil.setType(Material.SOIL);
+		soil.setData((byte) 0);
+		Prison.instance.getScheduler().delay(40, () -> soil.setData((byte) 7));
 	}
 
-	@EventHandler(ignoreCancelled = false, priority = EventPriority.HIGH)
-	public void onBreak(final BlockBreakEvent event) {
-		final Block block = event.getBlock();
-		final Material type = block.getType();
-		if (type == Material.CARROT || type == Material.CROPS || type == Material.POTATO || type == Material.BEETROOT_BLOCK) {
-			event.setCancelled(false); // allow the crop to be destroyed
-			
-			// slowly grow back the crop
-			Prison.instance.getScheduler().interval(0, 20, new Runnable() {
-				public void run() {
-					block.getState().`
-				}
-			});
+	@SuppressWarnings("deprecation")
+	@EventHandler(ignoreCancelled = true, priority = EventPriority.HIGH)
+	public void onBreak(final BlockBreakEvent event){
+		final Material type = event.getBlock().getType();
+
+		if (type != Material.CROPS && type != Material.CARROT && type != Material.BEETROOT_BLOCK && type != Material.POTATO) {
+			return;
 		}
 
+		event.setCancelled(true);
+		event.getBlock().setData((byte) 0);
+		Prison.instance.getScheduler().interval(0, 20, new RegrowTimer(event.getBlock(), 7));
 	}
 
 }

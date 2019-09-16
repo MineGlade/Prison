@@ -5,7 +5,6 @@ import java.util.Arrays;
 import java.util.List;
 
 import org.bukkit.scheduler.BukkitRunnable;
-import org.bukkit.scheduler.BukkitTask;
 
 import xyz.derkades.prisonglade.Prison;
 import xyz.derkades.prisonglade.mines.PrisonLevel;
@@ -37,20 +36,20 @@ public class FillTask implements Runnable {
 		if (!shouldFill) {
 			return;
 		}
-		
+
 		Prison.instance.getScheduler().interval(0, 20, new BukkitRunnable() {
-			
+
 			int secondsLeft = 30;
-			
+
 			@Override
 			public void run() {
-				Prison.instance.getLogger().debug("Refilling level %s in %s seconds", level, secondsLeft);
-				
-				if (secondsLeft == 30 || secondsLeft == 10 || secondsLeft == 5) {
+				Prison.instance.getLogger().debug("Refilling level %s in %s seconds", level, this.secondsLeft);
+
+				if (this.secondsLeft == 30 || this.secondsLeft == 10 || this.secondsLeft == 5) {
 					level.getWorld().getPlayers().forEach((p) -> p.sendMessage("Your mine will be refilled in %s seconds."));
 				}
-				
-				if (secondsLeft == 0) {
+
+				if (this.secondsLeft == 0) {
 					level.getWorld().getPlayers().forEach((p) -> {
 						p.teleport(level.getSpawnLocation());
 					});
@@ -59,9 +58,9 @@ public class FillTask implements Runnable {
 					return;
 				}
 
-				secondsLeft--;
+				this.secondsLeft--;
 			}
-			
+
 		});
 	}
 
