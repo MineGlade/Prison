@@ -11,6 +11,7 @@ import org.bukkit.WorldType;
 import com.mineglade.moda.lib.derkutils.bukkit.VoidGenerator;
 
 import xyz.derkades.prisonglade.themes.Themeable;
+import xyz.derkades.prisonglade.xp.ExpSettings;
 
 public abstract class PrisonLevel implements Themeable {
 
@@ -19,6 +20,8 @@ public abstract class PrisonLevel implements Themeable {
 	public abstract char getChar();
 
 	public abstract PrisonMine getMine();
+
+	public abstract ExpSettings getExpSettings();
 
 	public Environment getEnvironment() {
 		return Environment.NORMAL;
@@ -34,7 +37,7 @@ public abstract class PrisonLevel implements Themeable {
 		}
 		return this.world;
 	}
-	
+
 	public Location getSpawnLocation() {
 		return this.getWorld().getSpawnLocation().add(0.5, 0, 0.5);
 	}
