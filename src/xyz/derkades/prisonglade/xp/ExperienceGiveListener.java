@@ -26,7 +26,7 @@ public class ExperienceGiveListener implements Listener {
 
 		final Theme theme = level.getTheme();
 
-		final int xp = level.getExpSettings().getXp(event.getBlock().getType());
+		final int xp = level.getExpSettings().getXp(event.getBlock());
 		if (xp > 0) {
 			Prison.instance.getStorage().addXp(player, theme, xp);
 			player.spigot().sendMessage(ChatMessageType.ACTION_BAR, new ComponentBuilder("+" + xp + " xp").color(ChatColor.GRAY).create());
