@@ -37,6 +37,7 @@ public class ExpSettings {
 		return this.map;
 	}
 
+	@SuppressWarnings("deprecation")
 	public int getXp(final Block block) {
 		final Material type = block.getType();
 		final int data = block.getData();
