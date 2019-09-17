@@ -23,6 +23,7 @@ public enum Theme {
 		this.guiIcon = guiIcon;
 	}
 
+	@Deprecated
 	public String getName() {
 		return this.name;
 	}
@@ -33,6 +34,11 @@ public enum Theme {
 
 	public Material getGuiIcon() {
 		return this.guiIcon;
+	}
+
+	@Override
+	public String toString() {
+		return this.name;
 	}
 
 }

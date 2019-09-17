@@ -28,7 +28,7 @@ public abstract class PrisonLevel implements Themeable {
 	}
 
 	public String getWorldName() {
-		return this.getTheme().getName() + "/" + this.getChar();
+		return this.getTheme() + "/" + this.getChar();
 	}
 
 	public World getWorld() {
@@ -40,6 +40,11 @@ public abstract class PrisonLevel implements Themeable {
 
 	public Location getSpawnLocation() {
 		return this.getWorld().getSpawnLocation().add(0.5, 0, 0.5);
+	}
+
+	// TODO Make abstract later
+	public Location getShopLocation() {
+		return null;
 	}
 
 	public void loadWorld() {

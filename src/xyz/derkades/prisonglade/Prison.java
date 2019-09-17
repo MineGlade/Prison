@@ -20,6 +20,7 @@ import xyz.derkades.prisonglade.mechanics.FillTask;
 import xyz.derkades.prisonglade.mechanics.GriefProtection;
 import xyz.derkades.prisonglade.mines.PrisonLevel;
 import xyz.derkades.prisonglade.mines.PrisonLevels;
+import xyz.derkades.prisonglade.shops.VillagerSpawner;
 import xyz.derkades.prisonglade.storage.PrisonFileStorageHandler;
 import xyz.derkades.prisonglade.storage.PrisonStorageHandler;
 import xyz.derkades.prisonglade.xp.ExperienceGiveListener;
@@ -66,6 +67,8 @@ public class Prison extends Module<PrisonStorageHandler> implements Listener {
 
 		this.registerListener(this);
 		this.registerListener(new ExperienceGiveListener());
+
+		new VillagerSpawner().spawnVillagers();
 	}
 
 	@EventHandler

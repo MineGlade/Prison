@@ -21,7 +21,7 @@ public class MineCommand extends Command {
 	public boolean execute(final CommandSender sender, final String label, final String[] args) {
 		if (args.length == 1 && args[0].equalsIgnoreCase("list")) {
 			for (final PrisonLevel level : PrisonLevels.LEVELS) {
-				sender.sendMessage(level.getTheme().getName() + " : " + level.getChar());
+				sender.sendMessage(level.getTheme() + " : " + level.getChar());
 			}
 			return true;
 		} else if (args.length == 1 && args[0].equalsIgnoreCase("reset") && sender.hasPermission("prison.reset")) {
