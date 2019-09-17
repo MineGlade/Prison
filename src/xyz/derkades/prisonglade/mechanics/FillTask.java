@@ -46,7 +46,8 @@ public class FillTask implements Runnable {
 				Prison.instance.getLogger().debug("Refilling level %s in %s seconds", level, this.secondsLeft);
 
 				if (this.secondsLeft == 30 || this.secondsLeft == 10 || this.secondsLeft == 5) {
-					level.getWorld().getPlayers().forEach((p) -> p.sendMessage("Your mine will be refilled in %s seconds."));
+					level.getWorld().getPlayers().forEach((p) -> p.sendMessage(
+							String.format("Your mine will be refilled in %s seconds.", this.secondsLeft)));
 				}
 
 				if (this.secondsLeft == 0) {
