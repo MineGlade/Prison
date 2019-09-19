@@ -1,6 +1,6 @@
 package xyz.derkades.prisonglade.mines;
 
-import org.bukkit.entity.Player;
+import org.bukkit.entity.LivingEntity;
 
 import xyz.derkades.prisonglade.mines.cold.ColdA;
 import xyz.derkades.prisonglade.mines.cold.ColdB;
@@ -103,12 +103,11 @@ public class PrisonLevels {
 			new StoneD(),
 			new StoneE(),
 	};
-	
-	public static PrisonLevel getLevel(final Player player) {
+
+	public static PrisonLevel getLevel(final LivingEntity entity) {
 		for (final PrisonLevel level : PrisonLevels.LEVELS) {
-			if (player.getWorld().getName().contentEquals(level.getWorldName())) {
+			if (entity.getWorld().getName().contentEquals(level.getWorldName()))
 				return level;
-			}
 		}
 		return null;
 	}

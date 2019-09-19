@@ -9,7 +9,7 @@ import xyz.derkades.prisonglade.mines.PrisonLevels;
 
 public class VillagerSpawner {
 
-	public static final String VILLAGER_NAME = "%s %s shop";
+	private static final String VILLAGER_NAME = "%s %s shop";
 
 	public void spawnVillagers() {
 		for (final PrisonLevel level : PrisonLevels.LEVELS) {
