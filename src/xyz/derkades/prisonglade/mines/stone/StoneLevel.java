@@ -14,7 +14,17 @@ public abstract class StoneLevel extends PrisonLevel {
 	}
 	public ExpSettings getExpSettings() {
 		return new ExpSettings()
-				.addBlock(Material.GRAVEL, 1);
+				.addBlock(Material.COBBLESTONE, 1)
+				.addBlock(Material.STONE, 1, 2)
+				.addBlock(Material.STONE, 3, 2)
+				.addBlock(Material.GRAVEL, 0, 1)
+				.addBlock(Material.MOSSY_COBBLESTONE, 3)
+				.addBlock(Material.DIRT, 1)
+				.addBlock(Material.WOOD, 0, 1)
+				.addBlock(Material.WEB, 0, 4)
+				.addBlock(Material.COAL_ORE, 4)
+				.addBlock(Material.IRON_ORE, 5)
+				.addBlock(Material.STONE, 0, 1);
 
 }
 }

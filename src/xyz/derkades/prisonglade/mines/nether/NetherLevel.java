@@ -14,7 +14,15 @@ public abstract class NetherLevel extends PrisonLevel {
 	}
 	public ExpSettings getExpSettings() {
 		return new ExpSettings()
-				.addBlock(Material.GRAVEL, 1);
+				.addBlock(Material.SOUL_SAND, 1)
+				.addBlock(Material.GRAVEL, 1)
+				.addBlock(Material.GLOWSTONE, 2)
+				.addBlock(Material.OBSIDIAN, 10)
+				.addBlock(Material.NETHER_BRICK, 2)
+				.addBlock(Material.NETHER_FENCE, 2)
+				.addBlock(Material.NETHER_WART_BLOCK, 3)
+				.addBlock(Material.NETHERRACK, 1)
+				.addBlock(Material.QUARTZ_ORE, 4);
 
 }
 }
