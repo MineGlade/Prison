@@ -14,7 +14,18 @@ public abstract class DesertLevel extends PrisonLevel {
 	}
 	public ExpSettings getExpSettings() {
 		return new ExpSettings()
-				.addBlock(Material.GRAVEL, 1);
+				.addBlock(Material.SAND, 1, 1)
+				.addBlock(Material.GRAVEL, 0, 1)
+				.addBlock(Material.SANDSTONE, 0, 2)
+				.addBlock(Material.SANDSTONE, 1, 2)
+				.addBlock(Material.SANDSTONE, 2, 3)
+				.addBlock(Material.WEB, 1, 2)
+				.addBlock(Material.LOG_2, 0, 2)
+				.addBlock(Material.LEAVES_2, 0, 1)
+				.addBlock(Material.RED_SANDSTONE, 0, 3)
+				.addBlock(Material.RED_SANDSTONE, 1, 4)
+				.addBlock(Material.RED_SANDSTONE, 2, 5)
+				.addBlock(Material.GOLD_ORE, 0, 7);
 
 }
 }
