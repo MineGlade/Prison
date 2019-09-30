@@ -39,7 +39,7 @@ public class MineCommand extends Command {
 			final String levelString = args[1];
 
 			for (final PrisonLevel level : PrisonLevels.LEVELS) {
-				if (level.getTheme().getName().equalsIgnoreCase(themeString) && levelString.equalsIgnoreCase(level.getChar() + "")) {
+				if (level.getTheme().toString().equalsIgnoreCase(themeString) && levelString.equalsIgnoreCase(level.getChar() + "")) {
 					player.teleport(level.getWorld().getSpawnLocation());
 				}
 			}
